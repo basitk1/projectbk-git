@@ -5,14 +5,7 @@
 			{
 				"name": "Copy data input to output",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "check file",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -57,31 +50,34 @@
 				"inputs": [
 					{
 						"referenceName": "Input_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": {
+								"value": "@pipeline().parameters.filenamepipe",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "Output_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": {
+								"value": "@pipeline().parameters.filenamepipe",
+								"type": "Expression"
+							}
+						}
 					}
 				]
-			},
-			{
-				"name": "check file",
-				"type": "Validation",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"dataset": {
-						"referenceName": "Input_DS",
-						"type": "DatasetReference"
-					},
-					"timeout": "7.00:00:00",
-					"sleep": 10
-				}
 			}
 		],
+		"parameters": {
+			"filenamepipe": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2021-02-19T02:39:46Z"
 	},
