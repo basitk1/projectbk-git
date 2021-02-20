@@ -1,0 +1,24 @@
+{
+	"name": "triggerevent",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Copy Data",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/00cd90bc-db5d-49ea-85b3-a7995f02d6f8/resourceGroups/projectbk_dev_rg/providers/Microsoft.Storage/storageAccounts/projectbkdevsa",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
