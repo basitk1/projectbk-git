@@ -11,6 +11,9 @@
 		"AzureKeyVault_Dev_properties_typeProperties_baseUrl": {
 			"value": "https://projectbkdevKV.vault.azure.net/"
 		},
+		"triggerevent_properties_Copy Data_parameters_filenamepipe": {
+			"value": "@triggerbody().filename"
+		},
 		"triggerevent_properties_typeProperties_scope": {
 			"value": "/subscriptions/00cd90bc-db5d-49ea-85b3-a7995f02d6f8/resourceGroups/projectbk_dev_rg/providers/Microsoft.Storage/storageAccounts/projectbkdevsa"
 		},

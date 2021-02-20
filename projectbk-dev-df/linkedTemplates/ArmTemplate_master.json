@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://projectbkdevKV.vault.azure.net/"
 		},
+		"triggerevent_properties_Copy Data_parameters_filenamepipe": {
+			"type": "string",
+			"defaultValue": "@triggerbody().filename"
+		},
 		"triggerevent_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/00cd90bc-db5d-49ea-85b3-a7995f02d6f8/resourceGroups/projectbk_dev_rg/providers/Microsoft.Storage/storageAccounts/projectbkdevsa"
@@ -51,6 +55,9 @@
 					},
 					"AzureBlobStorage_dev_LS_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('AzureBlobStorage_dev_LS_properties_typeProperties_connectionString_secretName')]"
+					},
+					"triggerevent_properties_Copy Data_parameters_filenamepipe": {
+						"value": "[parameters('triggerevent_properties_Copy Data_parameters_filenamepipe')]"
 					},
 					"triggerevent_properties_typeProperties_scope": {
 						"value": "[parameters('triggerevent_properties_typeProperties_scope')]"
