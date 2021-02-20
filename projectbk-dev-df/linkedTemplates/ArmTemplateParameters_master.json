@@ -5,6 +5,12 @@
 		"factoryName": {
 			"value": "projectbk-dev-df"
 		},
+		"AzureSqlDatabase_LS_connectionString": {
+			"value": ""
+		},
+		"CosmosDb_LS_connectionString": {
+			"value": ""
+		},
 		"AzureBlobStorage_dev_LS_properties_typeProperties_connectionString_secretName": {
 			"value": "Dev-SA-Access-Secret"
 		},

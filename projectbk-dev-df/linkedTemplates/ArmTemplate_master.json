@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "projectbk-dev-df"
 		},
+		"AzureSqlDatabase_LS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_LS'"
+		},
+		"CosmosDb_LS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDb_LS'"
+		},
 		"AzureBlobStorage_dev_LS_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "Dev-SA-Access-Secret"
@@ -49,6 +57,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase_LS_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_LS_connectionString')]"
+					},
+					"CosmosDb_LS_connectionString": {
+						"value": "[parameters('CosmosDb_LS_connectionString')]"
 					},
 					"AzureKeyVault_Dev_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault_Dev_properties_typeProperties_baseUrl')]"
