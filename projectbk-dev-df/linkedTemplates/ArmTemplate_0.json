@@ -14,6 +14,10 @@
 		"AzureBlobStorage_dev_LS_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "Dev-SA-Access-Secret"
+		},
+		"triggerevent_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/00cd90bc-db5d-49ea-85b3-a7995f02d6f8/resourceGroups/projectbk_dev_rg/providers/Microsoft.Storage/storageAccounts/projectbkdevsa"
 		}
 	},
 	"variables": {
@@ -238,7 +242,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"name": "[concat(parameters('factoryName'), '/triggerevent')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -251,28 +255,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "wait",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
 					}
 				],
-				"type": "ScheduleTrigger",
+				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 1,
-						"startTime": "2021-02-20T13:03:00",
-						"timeZone": "Eastern Standard Time"
-					}
+					"blobPathBeginsWith": "/input/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('triggerevent_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Copy Data')]",
-				"[concat(variables('factoryId'), '/pipelines/wait')]"
+				"[concat(variables('factoryId'), '/pipelines/Copy Data')]"
 			]
 		}
 	]
